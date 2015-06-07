@@ -9,7 +9,7 @@
     <meta name="author" content="Code for America">
 
     <!-- Set the title here -->
-    <title> Employment Dashboard</title>
+    <title>Codman Square Dashboard</title>
 
     <!-- turn off robots during dev -->
     <meta name="robots" value="none">
@@ -114,7 +114,7 @@
     <div class="container" id="container">
         <div class="row">
             <div class="col-md-6">
-                <h1>Housing Dashboard</h1>
+                <h1>Codman Square Dashboard</h1>
                 <h2>Explore neighborhood housing trends in your city</h2>
             </div>
             <div class="col-md-6">
@@ -122,77 +122,15 @@
                 <a id="notifications-link" class="btn btn-primary btn-lg pull-right" href="http://citygram.org/lexington" role="button" target="_blank">Get Notifications</a>
             </div>
         </div>
-<div class="row">
-		<script>
 
-var margin = {top: 20, right: 20, bottom: 30, left: 100},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-
-var parseDate = d3.time.format("%y").parse;
-
-var x = d3.time.scale()
-    .range([0, width]);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");
-
-var line = d3.svg.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.unRate); });
-
-var svg = d3.select("#container").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-d3.csv("time.csv",
- function(error, data) {
-  data.forEach(function(d) {
-    d.date = new Date(+d.Year, 0, 1);
-    d.unRate = +d.unRate * 100;
-  });
-
-  x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain([0,d3.max(data, function(d) { return d.unRate; }) + 5]);
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Unemployment Rate %");
-
-  svg.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("d", line);
-});
-
-</script>
 </div>
-</div>
+
+
+<!----- Unemployment Maps ---------->
+<div>
 <div class="row">
 <div class="col-md-3"></div> 
-  <div class="col-md-6 text-center"><h1>Umemployment Rate</h1></div>
+  <div class="col-md-6 text-center"><h1>Unemployment Rate</h1></div>
 <div class="col-md-3"></div> 
 </div>
 
@@ -206,9 +144,9 @@ d3.csv("time.csv",
 
 <div class="row">
 <div class="col-md-3"></div> 
-<div class="col-md-2 text-center"><img src="block.jpeg" style="width:75%;height:75%;"></div>
-  <div class="col-md-2 text-center"><img src="codman.jpeg" style="width:75%;height:75%;"></div>
-<div class="col-md-2 text-center"><img src="county.jpeg" style="width:75%;height:75%;"></div>
+<div class="col-md-2 text-center"><img src="block.jpeg" style="width:75%;height:25%;"></div>
+  <div class="col-md-2 text-center"><img src="codman.jpeg" style="width:75%;height:25%;"></div>
+<div class="col-md-2 text-center"><img src="county.jpeg" style="width:75%;height:25%;"></div>
 <div class="col-md-3"></div> 
 </div>
 
@@ -229,8 +167,8 @@ d3.csv("time.csv",
 
 <div class="row">
 <div class="col-md-3"></div> 
-  <div class="col-md-3 text-center"><img src="boston.jpeg" style="width:75%;height:75%;"></div>
-  <div class="col-md-3 text-center"><img src="massachusetts.jpeg" style="width:75%;height:75%;"></div>
+  <div class="col-md-3 text-center"><img src="boston.jpeg" style="width:75%;height:25%;"></div>
+  <div class="col-md-3 text-center"><img src="massachusetts.jpeg" style="width:75%;height:25%;"></div>
 <div class="col-md-3"></div> 
 </div>
 
@@ -240,9 +178,15 @@ d3.csv("time.csv",
   <div class="col-md-3 text-center"><h3>8.9%</h3></div>
 <div class="col-md-3"></div> 
 </div>
-        <div class="row">
-            <div class="col-md-8 map-container">
+<div class="row">
+</div>
 
+
+
+<!------------------map section ----------------------->
+<div class="col-md-2"></div>
+            <div class="col-md-8 map-container">
+<div class="col-md-2"></div>
 
                 <div id="metric-container" style="max-height:0">
                 <!--
@@ -298,23 +242,23 @@ d3.csv("time.csv",
                     <button type="button" class="btn btn-default btn-sm select-clear">Clear Selected</button>
                 </div>
             </div>
-            <div class="col-md-4 map-aside">
+           <!-- <div class="col-md-4 map-aside">
                 <div class="stats">
                     <div class="row text-center">
                         <div class="col-md-6 col-md-offset-0 col-xs-4 col-xs-offset-1 stats-npa-mean">
                             <h3 class="stats-county-npa-mean">&nbsp;</h3>
-                            <span class="header">Codman</span>
+                            <span class="header">Lexington</span>
                             <span class="footer" style="border-bottom: 2px dashed black;">Precinct Average</span>
                             <br>
                             <span class="stats-median stats-county-npa-median">&nbsp;</span>
                         </div>
-                        <div class="col-md-6 col-md-offset-0 col-xs-4 col-xs-offset-2">
+                       <div class="col-md-6 col-md-offset-0 col-xs-4 col-xs-offset-2">
                             <h3 class="stats-selected stats-mean-selected">N/A</h3>
                             <span class="header">Selected</span>
                             <span class="footer">Precinct Average</span>
-                        </div>
+                        </div> 
                     </div>
-                </div>
+                </div> -->
 
                 <div id="barChart">
                     <svg width="100%" height="100%" class="chart barchart">
@@ -381,26 +325,106 @@ d3.csv("time.csv",
                 </div>
             </div>
         </div>
+
         <div class="row meta-container">
-            <div class="col-md-5">
+	<div class="col-md-3"> </div>
+            <div class="col-md-2" >
                 <div class="well meta-joyride">
                     <h4>Why This is Important</h4>
                     <div class='meta-important'></div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="well">
                     <h4>About the Data</h4>
                     <div class='meta-about'></div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="well">
                     <h4>Additional Resources</h4>
                     <div class='meta-resources'></div>
                 </div>
             </div>
         </div>
+
+
+
+
+<!-- ---------- Line Chart ------------------>
+<!--
+<div class="row">
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 100},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+
+var parseDate = d3.time.format("%y").parse;
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var line = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.unRate); });
+
+var svg = d3.select("#container").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("time.csv",
+ function(error, data) {
+  data.forEach(function(d) {
+    d.date = new Date(+d.Year, 0, 1);
+    d.unRate = +d.unRate * 100;
+  });
+
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain([0,d3.max(data, function(d) { return d.unRate; }) + 5]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Unemployment Rate %");
+
+  svg.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("d", line);
+});
+
+</script>
+</div>
+-->
+
+
+
+<!--footer-->
         <div class="row">
             <footer class="text-center page-footer">
                 <p class="text-muted">
