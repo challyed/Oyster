@@ -114,7 +114,7 @@
     <div class="container" id="container">
         <div class="row">
             <div class="col-md-6">
-                <h1>Codman Square Dashboard</h1>
+                <h1>Talbot-Norfolk  Triangle Dashboard</h1>
                 <h2>Explore neighborhood housing trends in your city</h2>
             </div>
             <div class="col-md-6">
@@ -125,6 +125,8 @@
 
 </div>
 
+
+<!----- Unemployment Maps ---------->
 <div>
 <div class="row">
 <div class="col-md-3"></div> 
@@ -165,8 +167,8 @@
 
 <div class="row">
 <div class="col-md-3"></div> 
-  <div class="col-md-3 text-center"><img src="boston.jpeg" style="width:75%;height:50%;"></div>
-  <div class="col-md-3 text-center"><img src="massachusetts.jpeg" style="width:75%;height:50%;"></div>
+  <div class="col-md-3 text-center"><img src="boston.jpeg" style="width:75%;height:25%;"></div>
+  <div class="col-md-3 text-center"><img src="massachusetts.jpeg" style="width:75%;height:25%;"></div>
 <div class="col-md-3"></div> 
 </div>
 
@@ -178,9 +180,23 @@
 </div>
 <div class="row">
 </div>
+
+
+
+
+<!-------------  line chart  -------------------------->
+<div class="row">
+
+<div class="col-md-12 text-center" id="line"></div>
+</div>
+
+
+<!------------------map section ----------------------->
+<div class="row">
 <div class="col-md-2"></div>
-            <div class="col-md-8 map-container">
-<div class="col-md-2"></div>
+
+     <div class="col-md-8 map-container">
+	<div class="col-md-2"></div>
 
                 <div id="metric-container" style="max-height:0">
                 <!--
@@ -319,35 +335,72 @@
                 </div>
             </div>
         </div>
+</div>
+
+
+<!----------------text buckets ------------------------------>
 
         <div class="row meta-container">
-	<div class="col-md-3"> </div>
-            <div class="col-md-2" >
+	<div class="col-md-2">  sdfsfrg</div>
+            <div class="col-md-4" >
                 <div class="well meta-joyride">
                     <h4>Why This is Important</h4>
+                     <ul>
+                        <li> Employment levels for youth 15-19 / for youth adults 20-24 </li>
+                        <li> Summer employment </li>
+                        <li> Year-round employment (0-5 hours/week; 5-10; 10-20; 20<li>) </li>
+                        <li> Educational attainment </li>
+                        <li> At grade level </li>
+                        <li> Graduation rate (Boston City Comparison, 4.9.2) </li>
+                        <li> Enrollment in post-secondary (Boston City Comparison, 4.9.3) </li>
+                        <li> STEM proficiency (Boston City Comparison, 9.4.2) </li>
+                        <li> Related factors </li>
+                        <li> Suspension rate (Boston City comparison, 4.7.3) </li>
+                        <li> CORI rate [?] (Boston City comparison, juvenile crime rates, 8.5.1) </li>
+                        <li> Employment experience (# jobs / time employed previous year) </li>
+                        <li> Truancy/Suspension rates (locally collected) </li>
+                        <li> Training/development experience </li>
+                        <li> Usage of training/employment programs </li>
+                        <li> Partnerships with local education institutions </li>
+
+                      </ul>
                     <div class='meta-important'></div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="well">
                     <h4>About the Data</h4>
+                    <ul>
+                      <li> Create support network for youth </li>
+                      <li> Identify and support youth at risk </li>
+                      <li> Increase funding for youth jobs via advocacy and “impact investing” sources </li>
+                      <li> Training for skills and job readiness </li>
+                      <li> Career counseling/job placement </li>
+                      <li> Business people meet youth before hiring </li>
+                      <li> Create support network for businesses </li>
+                      <li> Identify “youth ready” employers </li>
+                      <li> Create list of entry level jobs available </li>
+                      <li> Strengthen community-school linkages </li>
+                    </ul>
                     <div class='meta-about'></div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="well">
                     <h4>Additional Resources</h4>
+                    <p>YouthHub is a collaborative, neighborhood-based initiative working to dramatically improve youth outcomes, particularly related to career-readiness, in Boston neighborhoods. YouthHub applies a measurement-based and innovation-driven approach to improve youth population outcomes in targeted neighborhoods. By setting goals and measuring progress, leveraging community assets, and identifying and applying innovative solutions, YouthHub builds local capacity for youth and their communities to take the lead in achieving continuous improvement in youth outcomes that matter most. Visit their website: http://www.youthhubboston.org/ </p>
                     <div class='meta-resources'></div>
                 </div>
             </div>
+
         </div>
 
 
 
 
 <!-- ---------- Line Chart ------------------>
-<!--
-<div class="row">
+
+
 <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 100},
@@ -375,11 +428,12 @@ var line = d3.svg.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.unRate); });
 
-var svg = d3.select("#container").append("svg")
+var svg = d3.select("#line").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .text("Unemployment Rate Over Time");
 
 d3.csv("time.csv",
  function(error, data) {
@@ -413,8 +467,8 @@ d3.csv("time.csv",
 });
 
 </script>
-</div>
--->
+
+
 
 
 

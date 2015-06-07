@@ -114,7 +114,7 @@
     <div class="container" id="container">
         <div class="row">
             <div class="col-md-6">
-                <h1>Codman Square Dashboard</h1>
+                <h1>Talbot-Norfolk  Triangle Dashboard</h1>
                 <h2>Explore neighborhood housing trends in your city</h2>
             </div>
             <div class="col-md-6">
@@ -183,10 +183,20 @@
 
 
 
+
+<!-------------  line chart  -------------------------->
+<div class="row">
+
+<div class="col-md-12 text-center" id="line"></div>
+</div>
+
+
 <!------------------map section ----------------------->
+<div class="row">
 <div class="col-md-2"></div>
-            <div class="col-md-8 map-container">
-<div class="col-md-2"></div>
+
+     <div class="col-md-8 map-container">
+	<div class="col-md-2"></div>
 
                 <div id="metric-container" style="max-height:0">
                 <!--
@@ -325,10 +335,14 @@
                 </div>
             </div>
         </div>
+</div>
+
+
+<!----------------text buckets ------------------------------>
 
         <div class="row meta-container">
-	<div class="col-md-3"> </div>
-            <div class="col-md-2" >
+	<div class="col-md-2">  </div>
+            <div class="col-md-4" >
                 <div class="well meta-joyride">
                     <h4>Why This is Important</h4>
                      <ul>
@@ -353,7 +367,7 @@
                     <div class='meta-important'></div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="well">
                     <h4>About the Data</h4>
                     <ul>
@@ -371,22 +385,22 @@
                     <div class='meta-about'></div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="well">
-                    <h4>Additional Resources</h4>
                     <h4>Additional Resources</h4>
                     <p>YouthHub is a collaborative, neighborhood-based initiative working to dramatically improve youth outcomes, particularly related to career-readiness, in Boston neighborhoods. YouthHub applies a measurement-based and innovation-driven approach to improve youth population outcomes in targeted neighborhoods. By setting goals and measuring progress, leveraging community assets, and identifying and applying innovative solutions, YouthHub builds local capacity for youth and their communities to take the lead in achieving continuous improvement in youth outcomes that matter most. Visit their website: http://www.youthhubboston.org/ </p>
                     <div class='meta-resources'></div>
                 </div>
             </div>
+
         </div>
 
 
 
 
 <!-- ---------- Line Chart ------------------>
-<!--
-<div class="row">
+
+
 <script>
 
 var margin = {top: 20, right: 20, bottom: 30, left: 100},
@@ -414,11 +428,12 @@ var line = d3.svg.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.unRate); });
 
-var svg = d3.select("#container").append("svg")
+var svg = d3.select("#line").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .text("Unemployment Rate Over Time");
 
 d3.csv("time.csv",
  function(error, data) {
@@ -452,8 +467,8 @@ d3.csv("time.csv",
 });
 
 </script>
-</div>
--->
+
+
 
 
 
