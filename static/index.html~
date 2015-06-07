@@ -341,7 +341,7 @@
 <!----------------text buckets ------------------------------>
 
         <div class="row meta-container">
-	<div class="col-md-2">  sdfsfrg</div>
+	<div class="col-md-2">  </div>
             <div class="col-md-4" >
                 <div class="well meta-joyride">
                     <h4>Why This is Important</h4>
@@ -468,7 +468,7 @@ d3.csv("time.csv",
 
 </script>
 
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RnOewPqjH_E" frameborder="0" allowfullscreen></iframe>
 
 
 
