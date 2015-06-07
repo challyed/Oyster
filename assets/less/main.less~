@@ -15,7 +15,7 @@
 @selectedColor: #FFA400;
 @darkGray: #666;
 @font-family-sans-serif:  "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@brand-primary: #389ace;
+@brand-primary: #1fa67a;
 
 /* nav bar */
 .brand-icon {
